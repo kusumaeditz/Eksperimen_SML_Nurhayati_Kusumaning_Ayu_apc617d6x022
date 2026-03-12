@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Python 3.12.7
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.12.7'
 
@@ -24,12 +24,10 @@ jobs:
 
     - name: Run preprocessing
       run: |
-        python preprocessing/automate_Nurhayati_Kusumaning_Ayu_apc617d6x022.py \
-          --input credit_risk_dataset.csv \
-          --output preprocessing/credit_risk_dataset_preprocessing
+        python preprocessing/automate_Nurhayati_Kusumaning_Ayu_apc617d6x022.py --input credit_risk_dataset.csv --output preprocessing/credit_risk_dataset_preprocessing
 
     - name: Upload preprocessed data
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: credit_risk_preprocessed
         path: preprocessing/credit_risk_dataset_preprocessing/
